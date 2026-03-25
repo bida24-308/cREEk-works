@@ -1,104 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - FreshBite</title>
-  <link rel="stylesheet" href="../css/styles.css">
+    <title>Contact</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="logo"><span class="logo-icon"></span><span class="logo-text">FreshBite</span></div>
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="products.html">Our Meals</a></li>
-        <li><a href="subscription.html">Subscription</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-      </ul>
-      <div class="nav-actions"><a href="account.html" class="btn-account">Account</a><div class="hamburger"><span></span><span></span><span></span></div></div>
-    </div>
-  </nav>
 
-  <!-- Header -->
-  <section class="page-header"><h1>Get In Touch</h1><p>We'd love to hear from you.</p></section>
-
-  <section class="contact-section">
-    <div class="contact-info">
-      <h2>Contact Information</h2>
-      <div class="info-grid">
-        <div class="info-card"><div class="info-icon"></div><h3>Email</h3><p><a href="mailto:hello@freshbite.com">hello@freshbite.com</a></p><p class="meta">Response time: 2 hours</p></div>
-        <div class="info-card"><div class="info-icon"></div><h3>Phone</h3><p><a href="tel:1-800-FRESHBITE">1-800-FRESHBITE</a></p><p class="meta">Mon–Fri: 9 AM - 8 PM</p></div>
-        <div class="info-card"><div class="info-icon"></div><h3>Address</h3><p>123 Farm Road, Portland, OR 97205</p><p class="meta">HQ & Kitchen</p></div>
-        <div class="info-card"><div class="info-icon"></div><h3>Live Chat</h3><p><a href="#" id="startChat">Start Chat</a></p><p class="meta">Available 24/7 for members</p></div>
-      </div>
-    </div>
-
-    <div class="contact-form-container">
-      <h2>Send us a Message</h2>
-      <form class="contact-form" id="contactForm">
-        <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" required placeholder="John Doe"></div>
-        <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" required placeholder="john@example.com"></div>
-        <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" placeholder="(+267) 71 234 567"></div>
-        <div class="form-group"><label for="subject">Subject</label>
-          <select id="subject" name="subject" required>
-            <option value="">Select a topic</option>
-            <option value="billing">Billing Question</option>
-            <option value="delivery">Delivery Issue</option>
-            <option value="quality">Quality Feedback</option>
-            <option value="partnership">Partnership Inquiry</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="6" required></textarea></div>
-        <div class="form-group checkbox"><input type="checkbox" id="subscribe" name="subscribe" checked><label for="subscribe">Subscribe to our newsletter</label></div>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-      </form>
-    </div>
-  </section>
-
-  <section class="map-section"><h2>Visit Us</h2><div class="map-container"><iframe width="100%" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps" allowfullscreen="" loading="lazy"></iframe></div></section>
-
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section"><h4> FreshBite</h4><p>Premium meal subscriptions for a healthier you</p></div>
-      <div class="footer-section"><h4>Quick Links</h4><ul>
-        <li><a href="../index.html">Home</a></li>
+<nav>
+    <h2>FreshBite</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Meals</a></li>
         <li><a href="subscription.html">Subscription</a></li>
         <li><a href="about.html">About</a></li>
-      </ul></div>
-      <div class="footer-section"><h4>Legal</h4><ul>
-        <li><a href="#privacy">Privacy Policy</a></li>
-        <li><a href="#terms">Terms of Service</a></li>
-        <li><a href="#refund">Refund Policy</a></li>
-      </ul></div>
-      <div class="footer-section"><h4>Follow Us</h4><div class="social-links">
-        <a href="#"> Instagram</a>
-        <a href="#"> Facebook</a>
-        <a href="#"> Twitter</a>
-      </div></div>
-    </div>
-    <div class="footer-bottom"><p>© 2026 FreshBite. All rights reserved.</p></div>
-  </footer>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
 
-  <script src="../js/main.js"></script>
-  <script>
-    document.getElementById('startChat')?.addEventListener('click', (e)=>{ e.preventDefault(); FreshBite?.showToast('Chat will open soon'); });
-    document.getElementById('contactForm').addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const form = e.target;
-      const data = Object.fromEntries(new FormData(form).entries());
-      const v = FreshBite.FormValidator.validateForm(data);
-      if(!v.isValid){ v.errors.forEach(err=>FreshBite.showToast(err,'error')); return; }
-      const list = FreshBite.Storage.get('contactMessages') || [];
-      list.push({ ...data, ts: new Date().toISOString(), id: Date.now() });
-      FreshBite.Storage.set('contactMessages', list);
-      form.reset();
-      FreshBite.showToast('Thanks! Your message has been sent.','success');
-    });
-  </script>
+<section class="hero">
+    <h1>Contact Us</h1>
+    <p>Email: support@freshbite.com</p>
+</section>
+
 </body>
 </html>
