@@ -40,3 +40,19 @@ function showUser() {
 window.onload = function () {
     showUser();
 };
+
+// UPDATE NAVBAR NAME
+function updateNavbar() {
+    const user = localStorage.getItem("user");
+    const link = document.getElementById("accountLink");
+
+    if (user && link) {
+        link.textContent = "Hello " + user + " 👋";
+    }
+}
+
+// RUN ON LOAD
+window.onload = function () {
+    showUser();
+    updateNavbar();
+};
