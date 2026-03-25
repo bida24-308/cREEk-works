@@ -174,3 +174,8 @@ input {
     line-height: 1.7;
     text-align: left; /* keeps text readable */
 }
+
+.contact-info h2, 
+.contact-info h3 {
+    margin-top: 25px;
+}
