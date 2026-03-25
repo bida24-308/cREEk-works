@@ -100,4 +100,9 @@ nav a:hover {
     text-align: center;
 }
 
-
+input {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    margin: 10px;
+}
