@@ -1,173 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Meals - FreshBite</title>
-  <link rel="stylesheet" href="../css/styles.css">
+    <title>Meals</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="logo"><span class="logo-icon"></span><span class="logo-text">FreshBite</span></div>
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="products.html" class="active">Our Meals</a></li>
-        <li><a href="subscription.html">Subscription</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <div class="nav-actions"><a href="account.html" class="btn-account">Account</a><div class="hamburger"><span></span><span></span><span></span></div></div>
-    </div>
-  </nav>
 
-  <!-- Header -->
-  <section class="page-header"><h1>Our Delicious Meals</h1><p>Browse our collection of chef-crafted meals</p></section>
-
-  <!-- Filters -->
-  <section class="products-section">
-    <div class="filters">
-      <h3>Filter By:</h3>
-      <div class="filter-group">
-        <label><input type="checkbox" class="filter-checkbox" data-filter="cuisine"> Asian</label>
-        <label><input type="checkbox" class="filter-checkbox" data-filter="cuisine"> Mediterranean</label>
-        <label><input type="checkbox" class="filter-checkbox" data-filter="cuisine"> American</label>
-        <label><input type="checkbox" class="filter-checkbox" data-filter="cuisine"> Plant-Based</label>
-      </div>
-      <div class="filter-group">
-        <label><input type="checkbox" class="filter-checkbox" data-filter="diet"> Vegetarian</label>
-        <label><input type="checkbox" class="filter-checkbox" data-filter="diet"> Vegan</label>
-        <label><input type="checkbox" class="filter-checkbox" data-filter="diet"> Gluten-Free</label>
-        <label><input type="checkbox" class="filter-checkbox" data-filter="diet"> Keto</label>
-      </div>
-      <div class="filter-group price-filter">
-        <label>Price Range:</label>
-        <input type="range" id="priceRange" min="5" max="15" value="15">
-        <span id="priceDisplay">$5 - $15</span>
-      </div>
-    </div>
-
-    <!-- Products Grid -->
-    <div class="products-grid">
-      <div class="product-card">
-        <div class="product-image"></div>
-        <h3>Thai Green Curry</h3>
-        <p class="cuisine-tag">Asian</p>
-        <div class="meal-details"><p> Spicy ·  15 min ·  Vegan</p></div>
-        <p class="description">Fragrant green curry with coconut milk, bell peppers, and basil</p>
-        <div class="nutritional"><span>Calories: 380</span><span>Protein: 12g</span></div>
-        <div class="product-footer"><span class="price">$8.99</span><button class="btn-add">Add to Cart</button></div>
-      </div>
-
-      <div class="product-card featured">
-        <span class="badge">Popular</span>
-        <div class="product-image"></div>
-        <h3>Grilled Lamb Mediterranean</h3>
-        <p class="cuisine-tag">Mediterranean</p>
-        <div class="meal-details"><p> Hearty ·  20 min ·  Gluten-Free</p></div>
-        <p class="description">Herb-marinated lamb with tzatziki, feta, and fresh vegetables</p>
-        <div class="nutritional"><span>Calories: 520</span><span>Protein: 38g</span></div>
-        <div class="product-footer"><span class="price">$10.99</span><button class="btn-add">Add to Cart</button></div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image"></div>
-        <h3>Slow-Cooked Beef Stew</h3>
-        <p class="cuisine-tag">American</p>
-        <div class="meal-details"><p> Comfort ·  25 min ·  Paleo</p></div>
-        <p class="description">Tender beef with carrots, potatoes, and rich savory broth</p>
-        <div class="nutritional"><span>Calories: 450</span><span>Protein: 35g</span></div>
-        <div class="product-footer"><span class="price">$9.49</span><button class="btn-add">Add to Cart</button></div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image"></div>
-        <h3>Chickpea Falafel Wrap</h3>
-        <p class="cuisine-tag">Mediterranean</p>
-        <div class="meal-details"><p> Vegan ·  10 min ·  Vegetarian</p></div>
-        <p class="description">Crispy falafel with hummus, fresh veggies, and tahini sauce</p>
-        <div class="nutritional"><span>Calories: 340</span><span>Protein: 14g</span></div>
-        <div class="product-footer"><span class="price">$7.99</span><button class="btn-add">Add to Cart</button></div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image"></div>
-        <h3>Grilled Salmon & Quinoa</h3>
-        <p class="cuisine-tag">Mediterranean</p>
-        <div class="meal-details"><p> High Protein ·  18 min ·  Keto</p></div>
-        <p class="description">Wild salmon with roasted vegetables and fluffy quinoa</p>
-        <div class="nutritional"><span>Calories: 420</span><span>Protein: 42g</span></div>
-        <div class="product-footer"><span class="price">$11.99</span><button class="btn-add">Add to Cart</button></div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image"></div>
-        <h3>Rainbow Buddha Bowl</h3>
-        <p class="cuisine-tag">Plant-Based</p>
-        <div class="meal-details"><p> Vegan ·  12 min ·  Gluten-Free</p></div>
-        <p class="description">Organic greens, roasted chickpeas, avocado, with tahini dressing</p>
-        <div class="nutritional"><span>Calories: 380</span><span>Protein: 16g</span></div>
-        <div class="product-footer"><span class="price">$8.49</span><button class="btn-add">Add to Cart</button></div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image"></div>
-        <h3>Teriyaki Chicken Bowl</h3>
-        <p class="cuisine-tag">Asian</p>
-        <div class="meal-details"><p> Quick ·  15 min ·  Paleo</p></div>
-        <p class="description">Glazed chicken breast with steamed broccoli and jasmine rice</p>
-        <div class="nutritional"><span>Calories: 410</span><span>Protein: 40g</span></div>
-        <div class="product-footer"><span class="price">$8.99</span><button class="btn-add">Add to Cart</button></div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image"></div>
-        <h3>Pesto Pasta Primavera</h3>
-        <p class="cuisine-tag">Mediterranean</p>
-        <div class="meal-details"><p> Vegetarian ·  20 min ·  Whole-Wheat</p></div>
-        <p class="description">Fresh pasta with homemade pesto and seasonal vegetables</p>
-        <div class="nutritional"><span>Calories: 420</span><span>Protein: 18g</span></div>
-        <div class="product-footer"><span class="price">$7.99</span><button class="btn-add">Add to Cart</button></div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image"></div>
-        <h3>Asian Noodle Stir-Fry</h3>
-        <p class="cuisine-tag">Asian</p>
-        <div class="meal-details"><p> Vegan ·  12 min ·  Gluten-Free Opt</p></div>
-        <p class="description">Rice noodles with mixed vegetables in a light soy-ginger sauce</p>
-        <div class="nutritional"><span>Calories: 360</span><span>Protein: 12g</span></div>
-        <div class="product-footer"><span class="price">$7.49</span><button class="btn-add">Add to Cart</button></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section"><h4> FreshBite</h4><p>Premium meal subscriptions for a healthier you</p></div>
-      <div class="footer-section"><h4>Quick Links</h4><ul>
-        <li><a href="../index.html">Home</a></li>
+<nav>
+    <h2>FreshBite</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Meals</a></li>
         <li><a href="subscription.html">Subscription</a></li>
         <li><a href="about.html">About</a></li>
-      </ul></div>
-      <div class="footer-section"><h4>Legal</h4><ul>
-        <li><a href="#privacy">Privacy Policy</a></li>
-        <li><a href="#terms">Terms of Service</a></li>
-        <li><a href="#refund">Refund Policy</a></li>
-      </ul></div>
-      <div class="footer-section"><h4>Follow Us</h4><div class="social-links">
-        <a href="#"> Instagram</a>
-        <a href="#"> Facebook</a>
-        <a href="#"> Twitter</a>
-      </div></div>
-    </div>
-    <div class="footer-bottom"><p>© 2026 FreshBite. All rights reserved.</p></div>
-  </footer>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
 
-  <script src="../js/main.js"></script>
-  <script src="../js/products.js"></script>
+<section class="hero">
+    <h1>Our Meals</h1>
+    <p>Explore our delicious options</p>
+</section>
+
 </body>
 </html>
+ 
