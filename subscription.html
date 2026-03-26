@@ -6,6 +6,7 @@
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav>
     <h2>Uni-Eats</h2>
     <ul>
@@ -24,44 +25,55 @@
     <p>Choose the perfect plan for you</p>
 </section>
 
-<!-- SUBSCRIPTION CARDS -->
-<section class="plans">
+<!-- PLANS -->
+<section class="features">
 
-    <div class="plan-card">
+    <div class="feature">
         <h2>Weekly Plan</h2>
-        <p>Fresh meals delivered every week.</p>
-        <h3>P70 / week</h3>
-        <button class="btn" onclick="openPopup()">Choose Weekly</button>
+        <p>5 meals per week</p>
+        <p>P70 / week</p>
+        <button class="btn" onclick="selectPlan('Weekly Plan - 5 meals (P70/week)')">
+            Choose Weekly
+        </button>
     </div>
 
-    <div class="plan-card popular">
+    <div class="feature">
         <h2>Monthly Plan</h2>
-        <p>Best value for frequent customers.</p>
-        <h3>P250 / month</h3>
-        <button class="btn" onclick="openPopup()">Choose Monthly</button>
+        <p>20 meals per month</p>
+        <p>P250 / month</p>
+        <button class="btn" onclick="selectPlan('Monthly Plan - 20 meals (P250/month)')">
+            Choose Monthly
+        </button>
     </div>
 
-    <div class="plan-card">
+    <div class="feature">
         <h2>Student Plan</h2>
-        <p>Affordable meals for students.</p>
-        <h3>P50 / week</h3>
-        <button class="btn" onclick="openPopup()">Choose Student</button>
+        <p>3 meals per week</p>
+        <p>P50 / week</p>
+        <button class="btn" onclick="selectPlan('Student Plan - 3 meals (P50/week)')">
+            Choose Student
+        </button>
     </div>
 
 </section>
 
-<!-- POPUP -->
+<!-- PAYMENT POPUP -->
 <div id="popup" class="popup">
     <div class="popup-content">
+
         <h2>Payment</h2>
-        <p>Enter your card details</p>
-        <button class="btn" onclick="closePopup()">Close</button>
+        <p id="selectedPlanText"></p>
+
+        <input type="text" placeholder="Card Number">
+        <input type="text" placeholder="Expiry Date (MM/YY)">
+        <input type="text" placeholder="CVV">
+
+        <button class="btn" onclick="confirmPayment()">Pay Now</button>
+        <button class="btn" onclick="closePopup()">Cancel</button>
+
     </div>
 </div>
 
-<script src="main.js"></script>
-
 </body>
+<script src="main.js"></script>
 </html>
-
-
