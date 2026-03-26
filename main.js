@@ -56,3 +56,27 @@ window.onload = function () {
     showUser();
     updateNavbar();
 };
+
+function selectPlan(plan) {
+    localStorage.setItem("selectedPlan", plan);
+    document.getElementById("selectedPlanText").innerText = "You selected: " + plan;
+    openPopup();
+}
+
+function confirmPayment() {
+    const plan = localStorage.getItem("selectedPlan");
+    localStorage.setItem("userPlan", plan);
+
+    alert("Payment successful for " + plan + " 🎉");
+
+    closePopup();
+    location.href = "account.html";
+}
+
+function openPopup() {
+    document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
