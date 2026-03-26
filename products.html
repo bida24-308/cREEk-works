@@ -40,6 +40,30 @@
             margin-top: 20px;
             font-size: 18px;
         }
+
+        /* Toast Notification */
+        #toast {
+            visibility: hidden;
+            min-width: 300px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 15px;
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.5s, top 0.5s;
+        }
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            top: 50px;
+        }
     </style>
 </head>
 <body>
@@ -58,80 +82,83 @@
 
 <section class="hero">
     <h1>Order Once</h1>
-    <p>Select your meals and see the total price before checkout!</p>
+    <p>Select your meals and pay on delivery!</p>
 </section>
 
 <section class="meal-grid" id="mealGrid">
 
-    <div class="meal-item" data-name="Burger & Chips" data-price="50">
+    <div class="meal-item" data-name="Burger & Chips" data-price="25">
         <img src="burger and chips.jpg" alt="Burger and Chips">
         <h3>Burger & Chips</h3>
         <p>Crispy, juicy, and perfectly seasoned.</p>
-        <div class="meal-price">BWP 50</div>
+        <div class="meal-price">BWP 25</div>
     </div>
 
-    <div class="meal-item" data-name="Hotdog" data-price="35">
+    <div class="meal-item" data-name="Hotdog" data-price="20">
         <img src="hotdog.jpg" alt="Hotdog">
         <h3>Hotdog</h3>
         <p>A classic favorite, fresh and delicious.</p>
-        <div class="meal-price">BWP 35</div>
+        <div class="meal-price">BWP 20</div>
     </div>
 
-    <div class="meal-item" data-name="Kota" data-price="40">
+    <div class="meal-item" data-name="Kota" data-price="15">
         <img src="kota.jpg" alt="Kota">
         <h3>Kota</h3>
         <p>Local flavor packed into every bite.</p>
-        <div class="meal-price">BWP 40</div>
+        <div class="meal-price">BWP 15</div>
     </div>
 
-    <div class="meal-item" data-name="Macaroni" data-price="45">
+    <div class="meal-item" data-name="Macaroni" data-price="30">
         <img src="macaroni.jpg" alt="Macaroni">
         <h3>Macaroni</h3>
         <p>Cheesy, creamy, and cooked to perfection.</p>
-        <div class="meal-price">BWP 45</div>
+        <div class="meal-price">BWP 30</div>
     </div>
 
-    <div class="meal-item" data-name="Rice Dish" data-price="40">
+    <div class="meal-item" data-name="Rice Dish" data-price="30">
         <img src="rice.jpg" alt="Rice Dish">
         <h3>Rice Dish</h3>
         <p>Warm, comforting, and full of flavor.</p>
-        <div class="meal-price">BWP 40</div>
+        <div class="meal-price">BWP 30</div>
     </div>
 
-    <div class="meal-item" data-name="Spaghetti" data-price="45">
+    <div class="meal-item" data-name="Spaghetti" data-price="30">
         <img src="spaghetti.jpg" alt="Spaghetti">
         <h3>Spaghetti</h3>
         <p>Rich sauce and perfectly cooked pasta.</p>
-        <div class="meal-price">BWP 45</div>
+        <div class="meal-price">BWP 30</div>
     </div>
 
-    <div class="meal-item" data-name="Sorghum Porridge with Beef" data-price="55">
+    <div class="meal-item" data-name="Sorghum Porridge with Beef" data-price="30">
         <img src="Sorghum Porridge with Beef.jfif" alt="Sorghum Porridge with Beef">
         <h3>Sorghum Porridge with Beef</h3>
         <p>A hearty, traditional favorite.</p>
-        <div class="meal-price">BWP 55</div>
+        <div class="meal-price">BWP 30</div>
     </div>
 
-    <div class="meal-item" data-name="Coca-Cola" data-price="15">
+    <div class="meal-item" data-name="Coca-Cola" data-price="13">
         <img src="coke.jpg" alt="Coca-Cola">
         <h3>Coca-Cola</h3>
         <p>Refreshing and ice-cold.</p>
-        <div class="meal-price">BWP 15</div>
+        <div class="meal-price">BWP 13</div>
     </div>
 
-    <div class="meal-item" data-name="Fanta" data-price="15">
+    <div class="meal-item" data-name="Fanta" data-price="13">
         <img src="fanta.jpg" alt="Fanta">
         <h3>Fanta</h3>
         <p>Bright, fruity, and full of flavor.</p>
-        <div class="meal-price">BWP 15</div>
+        <div class="meal-price">BWP 13</div>
     </div>
 
 </section>
 
 <div style="text-align:center; margin:20px;">
     <div id="total">Total: BWP 0</div>
-    <button class="btn" id="checkoutBtn">Checkout</button>
+    <button class="btn" id="checkoutBtn">Order & Pay on Delivery</button>
 </div>
+
+<!-- Toast Notification -->
+<div id="toast"></div>
 
 <script>
     const mealItems = document.querySelectorAll('.meal-item');
@@ -140,6 +167,15 @@
     function updateTotal() {
         let total = selectedMeals.reduce((sum, meal) => sum + parseFloat(meal.price), 0);
         document.getElementById('total').textContent = "Total: BWP " + total;
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.className = "show";
+        setTimeout(() => {
+            toast.className = toast.className.replace("show", "");
+        }, 4000); // disappears after 4 seconds
     }
 
     mealItems.forEach(item => {
@@ -161,16 +197,19 @@
 
     document.getElementById('checkoutBtn').addEventListener('click', () => {
         if(selectedMeals.length === 0){
-            alert("Please select at least one meal!");
+            showToast("Please select at least one meal!");
             return;
         }
-        let summary = selectedMeals.map(m => `${m.name} (BWP ${m.price})`).join("\n");
-        summary += "\n\nTotal: BWP " + selectedMeals.reduce((sum, m) => sum + m.price, 0);
-        alert("Your order:\n" + summary);
-        // Later replace with real checkout page
-        // window.location.href = "checkout.html";
+        let summary = selectedMeals.map(m => `BWP{m.name} (BWP {m.price})`).join(", ");
+        let total = selectedMeals.reduce((sum, m) => sum + m.price, 0);
+        showToast(`✅ Your order: BWP{summary}. Total BWP {total}. Food will arrive in a few minutes. Pay on delivery!`);
+        
+        // Clear selection for new orders
+        selectedMeals = [];
+        mealItems.forEach(item => item.classList.remove('selected'));
+        updateTotal();
     });
-</script>
 
+<script src="main.js"></script>
 </body>
 </html>
