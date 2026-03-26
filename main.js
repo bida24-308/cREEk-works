@@ -103,3 +103,24 @@ function goToSubscription() {
 
     location.href = "subscription.html";
 }
+
+document.getElementById('checkoutBtn').addEventListener('click', () => {
+    const location = document.getElementById('locationInput').value.trim();
+    if(selectedMeals.length === 0){
+        showToast("Please select at least one meal!");
+        return;
+    }
+    if(location === "") {
+        showToast("Please enter your delivery location!");
+        return;
+    }
+    let summary = selectedMeals.map(m => BWP{m.name} (BWP {m.price})`).join(", ");
+    let total = selectedMeals.reduce((sum, m) => sum + m.price, 0);
+    showToast(`✅ Your order: BWP{summary}. Total BWP {total}. We’ll deliver to BWP{location} in a few minutes. Pay on delivery!`);
+
+    // Clear selection for new orders
+    selectedMeals = [];
+    mealItems.forEach(item => item.classList.remove('selected'));
+    updateTotal();
+    document.getElementById('locationInput').value = "";
+});
