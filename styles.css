@@ -179,3 +179,17 @@ input {
 .contact-info h3 {
     margin-top: 25px;
 }
+
+.meal-item {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.meal-item:hover {
+    transform: scale(1.05);
+}
+
+.selected {
+    border: 2px solid #38bdf8;
+    background-color: #334155;
+}
